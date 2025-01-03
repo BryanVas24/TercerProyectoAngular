@@ -1,16 +1,28 @@
 <app-header />
 <main>
   <div id="dashboard">
-    <section class="dashboard-item">
+    <app-dashboard-item
+      [imageData]="{ src: 'status.png', alt: 'Simbolo de señal' }"
+      title="Estado del servidor"
+    >
       <app-server-status />
-    </section>
+    </app-dashboard-item>
 
-    <section class="dashboard-item">
+    <app-dashboard-item
+      [imageData]="{ src: 'globe.png', alt: 'icono de globo terraqueo' }"
+      title="Trafico"
+    >
       <app-traffic />
-    </section>
+    </app-dashboard-item>
 
-    <section class="dashboard-item">
+    <app-dashboard-item
+      [imageData]="{
+        src: 'list.png',
+        alt: 'Imagen de una liusta de elementos'
+      }"
+      title="Soporte para tickets"
+    >
       <app-tickets />
-    </section>
+    </app-dashboard-item>
   </div>
 </main>

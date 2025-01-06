@@ -74,6 +74,7 @@ nav ul li a:hover {
 #dashboard {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
   gap: 1.5rem;
@@ -115,7 +116,7 @@ p {
 
 @media (min-width: 768px) {
   #traffic {
-    width: 20rem;
+    width: 35rem;
   }
 }
 
@@ -224,6 +225,7 @@ button:hover .icon {
 
 #tickets {
   display: flex;
+
   flex-direction: column;
   gap: 1.5rem;
 }

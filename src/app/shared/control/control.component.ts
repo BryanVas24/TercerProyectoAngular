@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -6,6 +6,8 @@ import { Component, Input } from '@angular/core';
   imports: [],
   templateUrl: './control.component.html',
   styleUrl: './control.component.css',
+  //Esta configuración
+  encapsulation: ViewEncapsulation.None,
 })
 export class ControlComponent {
   @Input({ required: true }) labelText!: string;

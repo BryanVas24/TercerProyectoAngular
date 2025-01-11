@@ -12,4 +12,11 @@ import { Component } from '@angular/core';
 })
 export class ServerStatusComponent {
   currentStatus = 'online';
+
+  ngOnInit() {
+    // Simulate server status fetching
+    setInterval(() => {
+      this.currentStatus = Math.random() > 0.5 ? 'online' : 'offline';
+    }, 5000);
+  }
 }

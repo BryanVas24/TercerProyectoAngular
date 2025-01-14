@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-server-status',
@@ -10,13 +10,18 @@ import { Component } from '@angular/core';
     id: 'server-status',
   },
 })
-export class ServerStatusComponent {
+//implements es de ts y busca una interfaz para que la clase tenga cierta forma
+export class ServerStatusComponent implements OnInit, OnDestroy {
   currentStatus = 'online';
-
+  private interval?: ReturnType<typeof setInterval>;
   ngOnInit() {
     // Simulate server status fetching
-    setInterval(() => {
+    this.interval = setInterval(() => {
       this.currentStatus = Math.random() > 0.5 ? 'online' : 'offline';
     }, 5000);
+  }
+  //El orden de los hooks acá no importa
+  ngOnDestroy(): void {
+    clearTimeout(this.interval);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
 import { Ticket } from '../tickets.model';
 
 @Component({
@@ -11,9 +11,13 @@ import { Ticket } from '../tickets.model';
 export class TicketComponent {
   @Input({ required: true }) data!: Ticket;
   detailsvisibilitie = signal(false);
-
+  @Output() close = new EventEmitter();
   onToggleDetails() {
     //Funciona similar a set pero espera una función como argumento
     this.detailsvisibilitie.update((wasVisible) => !wasVisible);
+  }
+
+  OnMarkAsCompleted() {
+    this.close.emit();
   }
 }

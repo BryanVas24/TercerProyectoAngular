@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { Ticket } from '../tickets.model';
 
 @Component({
@@ -10,4 +10,10 @@ import { Ticket } from '../tickets.model';
 })
 export class TicketComponent {
   @Input({ required: true }) data!: Ticket;
+  detailsvisibilitie = signal(false);
+
+  onToggleDetails() {
+    //Funciona similar a set pero espera una función como argumento
+    this.detailsvisibilitie.update((wasVisible) => !wasVisible);
+  }
 }
